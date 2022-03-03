@@ -1,0 +1,28 @@
+---
+- hosts: all
+  vars:
+    - rc_file: "~/.zshrc"  
+  tasks:
+    - name: Clone a repo with separate git directory
+      ansible.builtin.git:
+        repo: https://github.com/ohmyzsh/ohmyzsh.git
+        dest: ~/.oh-my-zsh
+
+    - name: Backup bashrc
+      shell: "cp -rf {{rc_file}} ~/.zshrc.orig" 
+
+    - name: Copiando config default
+      shell: "cp -rf ~/.oh-my-zsh/templates/zshrc.zsh-template {{rc_file}}" 
+
+    - name: Change User Shell to Zsh 
+      become: yes
+      user:
+        name: "{{ansible_user}}"
+        shell: /bin/zsh
+
+    - name: Alterando Tema para Bira
+      ansible.builtin.lineinfile:
+        path: "{{rc_file}}"
+        regexp: 'ZSH_THEME="robbyrussell"'
+        line: ZSH_THEME="bira" 
+        mode: '0644'        

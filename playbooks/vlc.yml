@@ -1,0 +1,9 @@
+---
+- hosts: all  
+  become: yes
+  tasks:
+    - name: Install Vlc
+      apt:
+        name:
+          - vlc
+        update_cache: yes

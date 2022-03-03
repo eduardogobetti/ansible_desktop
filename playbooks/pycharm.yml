@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    - versao: "2021.3.2"
+    - pycharm_home: "/opt/pycharm"
+    - tmp_file: "/tmp/pycharm.tar.gz"
+  tasks:
+    - name: Download Pycharm {{pycharm_home}}
+      get_url:
+        url: "https://download.jetbrains.com/python/pycharm-community-{{versao}}.tar.gz"
+        dest: "{{tmp_file}}"
+        force_basic_auth: yes
+
+    - name: Extract Pycharm into "{{pycharm_home}}"
+      shell: "tar xzf {{tmp_file}} -C /tmp" 
+
+    - name: Create a directory {{pycharm_home}} if it does not exist
+      ansible.builtin.file:
+        path: "{{pycharm_home}}"
+        state: directory
+        owner: www-data
+        group: www-data
+        mode: 0775
+        
+    - name: Copia para {{pycharm_home}}
+      shell: "rsync -r /tmp/pycharm-community-{{versao}}/* {{pycharm_home}}"

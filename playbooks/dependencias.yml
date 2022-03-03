@@ -1,0 +1,18 @@
+---
+- hosts: all  
+  become: yes
+  tasks:
+    - name: Install Pre-Requisites
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates 
+          - curl
+          - nano
+          - htop
+          - gnupg-agent
+          - software-properties-common
+          - python3-docker
+          - zsh
+          - git
+        update_cache: yes
