@@ -16,9 +16,10 @@ init: update
 	ansible-playbook playbooks/ncdu.yml
 	ansible-playbook playbooks/pycharm.yml
 	ansible-playbook playbooks/golang.yml
+	ansible-playbook playbooks/ferdi.yml
 
 atual:
-	ansible-playbook playbooks/golang.yml
+	# ansible-playbook playbooks/ferdi.yml
 
 	
 	
