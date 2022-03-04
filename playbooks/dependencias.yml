@@ -17,4 +17,5 @@
           - git
           - gnupg
           - lsb-release
+          - python3-pip          
         update_cache: yes

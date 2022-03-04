@@ -5,13 +5,13 @@
     - versao: "1.17.7"
     - tmp_file: "/tmp/go.tar.gz"    
   tasks:
-    - name: Download Pycharm {{pycharm_home}}
+    - name: Download Golang
       get_url:
         url: "https://go.dev/dl/go{{versao}}.linux-amd64.tar.gz"
         dest: "{{tmp_file}}"
         force_basic_auth: yes
 
-    - name: Extract Pycharm into "{{pycharm_home}}"
+    - name: Extract Golang
       shell: "tar -C /usr/local -xzf {{tmp_file}}"         
 
     - name: Setting GOROOT
@@ -20,19 +20,19 @@
         line: export GOROOT=/usr/local/go/bin
         insertafter: EOF
 
-    - name: Setting GOROOT
+    - name: Adding GOROOT to PATH
       lineinfile:
         path: /home/{{ansible_user}}/.zshrc
         line: export PATH=$PATH:$GOROOT
         insertafter: EOF
 
-    - name: Setting GOROOT
+    - name: Setting GOPATH
       lineinfile:
         path: /home/{{ansible_user}}/.zshrc
         line: export GOPATH=/home/{{ansible_user}}/go
         insertafter: EOF        
 
-    - name: Setting GOROOT
+    - name: Adding GOPATH to PATH
       lineinfile:
         path: /home/{{ansible_user}}/.zshrc
         line: export PATH=$GOPATH/bin:$PATH

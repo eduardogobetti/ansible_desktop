@@ -8,9 +8,6 @@
         repo: https://github.com/ohmyzsh/ohmyzsh.git
         dest: ~/.oh-my-zsh
 
-    - name: Backup bashrc
-      shell: "cp -rf {{rc_file}} ~/.zshrc.orig" 
-
     - name: Copiando config default
       shell: "cp -rf ~/.oh-my-zsh/templates/zshrc.zsh-template {{rc_file}}" 
 
