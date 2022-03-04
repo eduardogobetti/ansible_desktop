@@ -1,12 +1,12 @@
 ---
-- hosts: all  
+- hosts: all
   become: yes
   tasks:
     - name: Install Pre-Requisites
       apt:
         name:
           - apt-transport-https
-          - ca-certificates 
+          - ca-certificates
           - curl
           - nano
           - htop
@@ -17,5 +17,6 @@
           - git
           - gnupg
           - lsb-release
-          - python3-pip          
+          - python3-pip
+          - nload
         update_cache: yes

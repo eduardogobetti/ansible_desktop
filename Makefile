@@ -18,6 +18,7 @@ init: update
 	ansible-playbook playbooks/golang.yml
 	ansible-playbook playbooks/ferdi.yml
 	ansible-playbook playbooks/docker.yml
+	ansible-playbook playbooks/winbox.yml
 
 atual:
-	ansible-playbook playbooks/pycharm.yml
+	# ansible-playbook playbooks/winbox.yml
