@@ -17,9 +17,10 @@ init: update
 	ansible-playbook playbooks/pycharm.yml
 	ansible-playbook playbooks/golang.yml
 	ansible-playbook playbooks/ferdi.yml
-
+	ansible-playbook playbooks/docker.yml
+	
 atual:
-	# ansible-playbook playbooks/ferdi.yml
+	# ansible-playbook playbooks/docker.yml
 
 	
 	

@@ -15,4 +15,6 @@
           - python3-docker
           - zsh
           - git
+          - gnupg
+          - lsb-release
         update_cache: yes
