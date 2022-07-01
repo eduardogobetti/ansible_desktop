@@ -1,0 +1,5 @@
+---
+- name: Install Bat
+  apt:
+    name:
+      - bat 

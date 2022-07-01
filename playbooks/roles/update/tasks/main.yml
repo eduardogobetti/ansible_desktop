@@ -1,0 +1,8 @@
+---
+- include: ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+  tags: package     
+
+- include: fedora.yml
+  when: ansible_distribution == 'Fedora'
+  tags: package   

@@ -1,0 +1,25 @@
+---
+- include: ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+  tags: package     
+
+- include: fedora.yml
+  when: ansible_distribution == 'Fedora'
+  tags: package   
+
+- name: Verify if oh-my-zsh folder is present
+  become: no
+  stat:
+    path: "~/.oh-my-zsh"
+  register: zsh_folder      
+
+- name: Install Oh-My-Zsh
+  become: no
+  shell: 'sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" '
+  when: not zsh_folder.stat.exists       
+
+- name: Change User Shell to Zsh 
+  become: yes
+  user:
+    name: "{{ lookup('env', 'USER') }}"
+    shell: /bin/zsh

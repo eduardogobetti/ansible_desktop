@@ -1,21 +1,15 @@
 # Ansible Desktop
 
 ## Dependências
-Instalar dependências abaixo:
+>Instalar dependências abaixo:
 ```bash
-sudo apt install ansible sshpass openssh-server -y &&\
-ansible-galaxy collection install community.general
+sudo apt -y install ansible git
 ```
 <br/>
 
 ## Configurações
-Alterar o arquivo config/hosts:
-```
-* ansible_user = Seu usuário
-* ansible_ssh_pass = Senha do usuário
-* ansible_sudo_pass = Senha do usuário
-* setar o IP da sua maquina
-```
+> Alterar o arquivo playbooks/all.yml e descomentar aplicativos necessários.
+
 <br/>
 
 ## Executar

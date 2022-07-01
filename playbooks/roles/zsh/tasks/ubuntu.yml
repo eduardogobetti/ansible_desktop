@@ -1,0 +1,5 @@
+---
+- name : Install Ncdu
+  apt:
+    name:
+      - zsh 

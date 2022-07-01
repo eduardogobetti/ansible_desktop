@@ -1,8 +1,0 @@
----
-- hosts: all
-  become: yes
-  tasks:
-    - name: Install ferdi
-      community.general.flatpak:
-        name:  com.getferdi.Ferdi
-        state: present

@@ -1,0 +1,20 @@
+---
+- name: Delete existing executable
+  file:
+    path: "/usr/local/bin/mcfly"
+    state: absent
+  
+- name: Download MCFly
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh"
+    dest: /tmp/mcfly_install.sh
+    mode: '0755' 
+
+- name: Install MCFly
+  shell: "/tmp/mcfly_install.sh --git cantino/mcfly"     
+
+- name: Inserting zsh to bashrc
+  lineinfile:
+    path: /home/{{ lookup('env', 'USER') }}/.zshrc
+    line: eval "$(mcfly init zsh)"
+    insertafter: EOF

@@ -1,0 +1,6 @@
+---
+- name: Install default programs
+  dnf:
+    name: 
+      - zsh
+    state: latest

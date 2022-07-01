@@ -1,0 +1,6 @@
+---
+- name: Install Vlc
+  dnf:
+    name: 
+      - vlc
+    state: latest

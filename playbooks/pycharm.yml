@@ -1,9 +1,0 @@
----
-- hosts: all
-  become: yes
-  tasks:
-    - name: Install Pycharm
-      community.general.flatpak:
-        name:  com.jetbrains.PyCharm-Community
-        state: present
-      

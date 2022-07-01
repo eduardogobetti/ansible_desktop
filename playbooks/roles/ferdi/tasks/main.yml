@@ -1,0 +1,5 @@
+---
+- name: Install ferdi
+  community.general.flatpak:
+    name:  com.getferdi.Ferdi
+    state: present

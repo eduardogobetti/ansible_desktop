@@ -1,0 +1,16 @@
+---
+- name: Enable chrome  repo
+  shell: dnf config-manager --set-enabled google-chrome
+
+- name: Install chrome
+  dnf:
+    name: 
+      - google-chrome-stable
+    state: latest
+    
+
+- name: Uninstall gnome-keyring
+  ansible.builtin.dnf:
+    name: gnome-keyring
+    state: absent
+    autoremove: yes    
