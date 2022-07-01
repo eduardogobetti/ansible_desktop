@@ -1,0 +1,20 @@
+---
+- hosts:
+    - local
+  connection: local
+  become: yes
+  roles:
+    - update
+    - default_apps
+    - flatpak
+    - zsh
+    # - bat
+    # - vlc
+    # - vscode
+    # - sublime
+    # - ncdu
+    # - mcfly
+    # - google_chrome
+    # - go
+    # - pycharm
+    # - ferdi
